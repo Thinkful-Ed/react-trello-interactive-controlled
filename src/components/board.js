@@ -1,6 +1,7 @@
 import React from 'react';
 
 import List from './list';
+import AddForm from './add-form';
 
 export default class Board extends React.Component {
     constructor(props) {
@@ -25,6 +26,7 @@ export default class Board extends React.Component {
                 <h2>{this.props.title}</h2>
                 <div className="lists">
                     {lists}
+                    <AddForm type="list" onAdd={this.addList} />
                 </div>
             </div>
         );
