@@ -6,8 +6,6 @@ export default class AddForm extends React.Component {
         this.state = {
             editing: false
         }
-
-        this.onSubmit = this.onSubmit.bind(this);
     }
 
     onSubmit(event) {
@@ -34,7 +32,7 @@ export default class AddForm extends React.Component {
         }
 
         return (
-            <form className="card add-form" onSubmit={this.onSubmit}>
+            <form className="card add-form" onSubmit={e => this.onSubmit(e)}>
                 <input type="text" ref={input => this.textInput = input} />
                 <button>Add</button>
                 <button type="button" onClick={() => this.setEditing(false)}>
