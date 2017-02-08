@@ -8,13 +8,6 @@ export default class AddForm extends React.Component {
         }
     }
 
-    onSubmit(event) {
-        event.preventDefault();
-        const text = this.textInput.value.trim();
-        console.log(text);
-        this.textInput.value = '';
-    }
-
     setEditing(editing) {
         this.setState({
             editing
@@ -32,8 +25,8 @@ export default class AddForm extends React.Component {
         }
 
         return (
-            <form className="card add-form" onSubmit={e => this.onSubmit(e)}>
-                <input type="text" ref={input => this.textInput = input} />
+            <form className="card add-form">
+                <input type="text" />
                 <button>Add</button>
                 <button type="button" onClick={() => this.setEditing(false)}>
                     Cancel
