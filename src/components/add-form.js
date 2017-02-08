@@ -13,9 +13,7 @@ export default class AddForm extends React.Component {
     onSubmit(event) {
         event.preventDefault();
         const text = this.textInput.value.trim();
-        if (text && this.props.onAdd) {
-            this.props.onAdd(this.textInput.value);
-        }
+        console.log(text);
         this.textInput.value = '';
     }
 
