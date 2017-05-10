@@ -10,6 +10,14 @@ export default class AddForm extends React.Component {
         }
     }
 
+    onSubmit(event) {
+        event.preventDefault();
+        const text = this.textInput.value.trim();
+        console.log(text);
+        // TODO: Add the card or list
+        this.textInput.value = '';
+    }
+
     setEditing(editing) {
         this.setState({
             editing
@@ -27,8 +35,8 @@ export default class AddForm extends React.Component {
         }
 
         return (
-            <form className="card add-form">
-                <input type="text" />
+            <form className="card add-form" onSubmit={(e) => this.onSubmit(e)}>
+                <input type="text" ref={input => this.textInput = input} />
                 <button>Add</button>
                 <button type="button" onClick={() => this.setEditing(false)}>
                     Cancel
