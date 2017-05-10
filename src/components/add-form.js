@@ -6,8 +6,25 @@ export default class AddForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            editing: false
+            editing: false,
+            text: ''
         }
+    }
+
+    onSubmit(event) {
+        event.preventDefault();
+        const text = this.state.text;
+        console.log(text);
+        // TODO: Add the card or list
+        this.setState({
+            text: ''
+        });
+    }
+
+    setText(text) {
+        this.setState({
+            text
+        })
     }
 
     setEditing(editing) {
@@ -27,8 +44,9 @@ export default class AddForm extends React.Component {
         }
 
         return (
-            <form className="card add-form">
-                <input type="text" />
+            <form className="card add-form" onSubmit={(e) => this.onSubmit(e)}>
+                <input type="text" value={this.state.text}
+                    onChange={e => this.setText(e.target.value)} />
                 <button>Add</button>
                 <button type="button" onClick={() => this.setEditing(false)}>
                     Cancel
