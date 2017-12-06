@@ -3,8 +3,6 @@ import React from 'react';
 import Card from './card';
 import AddForm from './add-form';
 
-import './list.css';
-
 export default class List extends React.Component {
     constructor(props) {
         super(props);
@@ -21,13 +19,19 @@ export default class List extends React.Component {
 
     render() {
         const cards = this.state.cards.map((card, index) =>
-            <Card key={index} {...card} />
+            <li key={index}>
+                <Card {...card} />
+            </li>
         );
         return (
-            <div className="list">
+            <div>
                 <h3>{this.props.title}</h3>
-                {cards}
-                <AddForm type="card" />
+                <ul className="list">
+                    {cards}
+                    <li>
+                        <AddForm type="card" />
+                    </li>
+                </ul>
             </div>
         );
     }
