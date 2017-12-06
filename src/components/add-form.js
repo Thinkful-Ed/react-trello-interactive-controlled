@@ -26,17 +26,22 @@ export default class AddForm extends React.Component {
 
     render() {
         if (!this.state.editing) {
+            const text = `Add a ${this.props.type}`;
             return (
                 <div className="add-button"
                     onClick={() => this.setEditing(true)}>
-                    <a href="#">Add a {this.props.type}...</a>
+                    <a href="#">{text}...</a>
                 </div>
             );
         }
-
+        const label = `Enter a ${this.props.type}`;
         return (
             <form className="card add-form" onSubmit={(e) => this.onSubmit(e)}>
-                <input type="text" ref={input => this.textInput = input} />
+                <input
+                    type="text"
+                    ref={input => this.textInput = input}
+                    aria-label={label}
+                />
                 <button>Add</button>
                 <button type="button" onClick={() => this.setEditing(false)}>
                     Cancel
